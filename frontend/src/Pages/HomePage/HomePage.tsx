@@ -1,12 +1,19 @@
+import LoginForm from "../../Features/Authentication/LoginForm/LoginForm";
+import { User } from "../../models/User";
+
 interface HomePageProp {
   displayLogin: boolean;
+  updateLoggedInUser(user: User): void;
 }
 
 const HomePage = (props: HomePageProp): JSX.Element => {
   return (
     <div className="page">
-      Home Page
-      {props.displayLogin ? <p>Displaying the login form</p> : <></>}
+      {props.displayLogin ? (
+        <LoginForm updateLoggedInUser={props.updateLoggedInUser} />
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
