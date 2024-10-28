@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import HomePage from "./Pages/HomePage/HomePage";
-import { User } from "./models/User";
+import { useSelector } from "react-redux";
+import { RootState } from "./Redux/ReduxStore";
 
 const App = () => {
   const [displayLogin, setDisplayLogin] = useState<boolean>(true);
-  const [loggedInUser, setLoggedInUser] = useState<User>();
 
-  const updateLoggedInUser = (user: User) => {
-    setLoggedInUser(user);
-  };
+  const loggedInUser = useSelector(
+    (state: RootState) => state.authentication.loggedInUser
+  );
 
   useEffect(() => {
     console.log(loggedInUser);
@@ -16,10 +16,7 @@ const App = () => {
 
   return (
     <>
-      <HomePage
-        displayLogin={displayLogin}
-        updateLoggedInUser={updateLoggedInUser}
-      />
+      <HomePage displayLogin={displayLogin} />
     </>
   );
 };

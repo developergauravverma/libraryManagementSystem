@@ -2,6 +2,9 @@ import { FC, MouseEvent, useRef, useState } from "react";
 import styles from "./styles.module.css";
 import axios from "axios";
 import { User } from "../../../models/User";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../../Redux/ReduxStore";
+import { loginUser } from "../../../Redux/Slice/AuthanticationSclice";
 
 const {
   loginForm,
@@ -12,35 +15,29 @@ const {
   loginFormRegister,
 } = styles;
 
-interface loginFormProps {
-  updateLoggedInUser(user: User): void;
-}
-
-const LoginForm: FC<loginFormProps> = ({ updateLoggedInUser }) => {
-  const [error, setError] = useState<boolean>(false);
+const LoginForm: FC = () => {
   const emailRef = useRef<HTMLInputElement>(null);
   const passRef = useRef<HTMLInputElement>(null);
+
+  const auth = useSelector((state: RootState) => state.authentication);
+  const dispatch: AppDispatch = useDispatch();
 
   const handleLoginUser = async (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (emailRef && emailRef.current && passRef && passRef.current) {
-      try {
-        const req = await axios.post("http://localhost:8000/auth/login", {
+      dispatch(
+        loginUser({
           email: emailRef.current.value,
           password: passRef.current.value,
-        });
-        setError(false);
-        updateLoggedInUser(req.data.user);
-      } catch (error) {
-        setError(true);
-      }
+        })
+      );
     }
   };
 
   return (
     <form className={loginForm}>
       <h2>Please Login</h2>
-      {error ? (
+      {auth.error ? (
         <p className={LoginFormError}>UserName or Password is incorrect</p>
       ) : (
         <></>
