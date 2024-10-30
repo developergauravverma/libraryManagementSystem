@@ -1,11 +1,9 @@
-import { useEffect, useState } from "react";
-import HomePage from "./Pages/HomePage/HomePage";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import HomePage from "./Pages/HomePage/HomePage";
 import { RootState } from "./Redux/ReduxStore";
 
 const App = () => {
-  const [displayLogin, setDisplayLogin] = useState<boolean>(true);
-
   const loggedInUser = useSelector(
     (state: RootState) => state.authentication.loggedInUser
   );
@@ -16,7 +14,7 @@ const App = () => {
 
   return (
     <>
-      <HomePage displayLogin={displayLogin} />
+      <HomePage />
     </>
   );
 };

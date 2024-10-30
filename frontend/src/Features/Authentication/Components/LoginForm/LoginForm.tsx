@@ -1,10 +1,10 @@
 import { FC, MouseEvent, useRef, useState } from "react";
 import styles from "./styles.module.css";
 import axios from "axios";
-import { User } from "../../../models/User";
+import { User } from "../../../../models/User";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../../Redux/ReduxStore";
-import { loginUser } from "../../../Redux/Slice/AuthanticationSclice";
+import { AppDispatch, RootState } from "../../../../Redux/ReduxStore";
+import { loginUser } from "../../../../Redux/Slice/AuthanticationSclice";
 
 const {
   loginForm,
@@ -15,7 +15,11 @@ const {
   loginFormRegister,
 } = styles;
 
-const LoginForm: FC = () => {
+interface LoginFormProps {
+  toggleRegister(): void;
+}
+
+const LoginForm: FC<LoginFormProps> = ({ toggleRegister }) => {
   const emailRef = useRef<HTMLInputElement>(null);
   const passRef = useRef<HTMLInputElement>(null);
 
@@ -69,7 +73,9 @@ const LoginForm: FC = () => {
       </button>
       <p>
         Don't have an account?{" "}
-        <span className={loginFormRegister}>Create One here.</span>
+        <span className={loginFormRegister} onClick={toggleRegister}>
+          Create One here.
+        </span>
       </p>
     </form>
   );

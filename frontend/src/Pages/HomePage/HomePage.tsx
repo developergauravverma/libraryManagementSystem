@@ -1,12 +1,17 @@
-import LoginForm from "../../Features/Authentication/LoginForm/LoginForm";
+import { useSelector } from "react-redux";
+import { RootState } from "../../Redux/ReduxStore";
+import { LoginRegisterModal } from "../../Features/Authentication";
 
-interface HomePageProp {
-  displayLogin: boolean;
-}
+const HomePage = (): JSX.Element => {
+  const displayLogin = useSelector(
+    (state: RootState) => state.modal.displayLogin
+  );
 
-const HomePage = (props: HomePageProp): JSX.Element => {
   return (
-    <div className="page">{props.displayLogin ? <LoginForm /> : <></>}</div>
+    <div className="page">
+      <h1>Home page</h1>
+      {displayLogin ? <LoginRegisterModal /> : <></>}
+    </div>
   );
 };
 

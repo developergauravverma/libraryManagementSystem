@@ -11,3 +11,11 @@ export interface loginUserPayload {
   email: string;
   password: string;
 }
+
+export interface RegisterUserPayload {
+  type: "ADMIN" | "EMPLOYEE" | "PATRON";
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+}
