@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../../Redux/ReduxStore";
 import { setDisplayLogin } from "../../../../Redux/Slice/ModalSlice";
 import LoginForm from "../LoginForm/LoginForm";
+import RegisterForm from "../RegisterForm/RegisterForm";
 
 const LoginRegisterModal: FC = () => {
   const authState = useSelector((state: RootState) => state.authentication);
@@ -33,7 +34,13 @@ const LoginRegisterModal: FC = () => {
   return (
     <Modal
       toggleModal={closeModal}
-      content={login ? <LoginForm toggleRegister={toggleLogin} /> : <></>}
+      content={
+        login ? (
+          <LoginForm toggleRegister={toggleLogin} />
+        ) : (
+          <RegisterForm toggleLogin={toggleLogin} />
+        )
+      }
     ></Modal>
   );
 };

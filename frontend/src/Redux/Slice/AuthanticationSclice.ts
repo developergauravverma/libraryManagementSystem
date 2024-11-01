@@ -3,7 +3,7 @@ import {
   RegisterUserPayload,
   User,
 } from "./../../models/User";
-import { createAsyncThunk, createSlice, isAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 interface AuthenticationSliceState {
