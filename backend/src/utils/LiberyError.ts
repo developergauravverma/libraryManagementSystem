@@ -9,3 +9,9 @@ export class UnableUsernameOrPasswordError extends Error {
     super(message);
   }
 }
+
+export class UserDoseNotExistsError extends Error {
+  constructor(message: string) {
+    super(message);
+  }
+}
