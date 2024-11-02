@@ -6,13 +6,13 @@ const routes = express.Router();
 
 routes.post(
   "/register",
-  ValidateSchema(Schemas.user.create),
+  ValidateSchema(Schemas.user.create, "body"),
   AuthController.handleRegister
 );
 
 routes.post(
   "/login",
-  ValidateSchema(Schemas.user.login),
+  ValidateSchema(Schemas.user.login, "body"),
   AuthController.handleLogin
 );
 
