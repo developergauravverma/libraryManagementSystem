@@ -1,0 +1,67 @@
+.navbar {
+  width: 100%;
+  height: 100%;
+  background-color: var(--secondary);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 64px;
+  padding-right: 44px;
+}
+.navbarLogoSection {
+  width: 25%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-decoration: none;
+  color: var(--text);
+}
+.navbarOptionSection {
+  width: 75%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.navbarOption {
+  height: 100%;
+  width: fit-content;
+  padding: 12px;
+  color: var(--text);
+  border-radius: 12px;
+  cursor: pointer;
+  margin-right: 16px;
+}
+.navbarOption:hover {
+  background-color: var(--primary);
+  color: var(--text-secondary);
+}
+.navbarLink {
+  text-decoration: none;
+}
+.navbarSearchBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px var(--text) solid;
+  border-radius: 22px;
+  padding: 4px;
+  margin-right: 16px;
+}
+.navbarSearchInput {
+  height: 2.5rem;
+  background-color: transparent;
+  border: none;
+  padding-left: 16px;
+  font-size: 1.75rem;
+  font-weight: 400;
+}
+
+::placeholder {
+  color: var(--text);
+}
+.navbarSearchInput:focus {
+  outline: none;
+}
