@@ -1,6 +1,7 @@
 import {
   BookOfTheWeek,
   LibraryCard,
+  LibraryHours,
   UpComingEvents,
 } from "../../Features/Landing";
 import Styles from "./Styles.module.css";
@@ -16,7 +17,9 @@ const HomePage = (): JSX.Element => {
           <UpComingEvents />
           <LibraryCard />
         </div>
-        <div className={homePageRight}></div>
+        <div className={homePageRight}>
+          <LibraryHours />
+        </div>
       </div>
     </div>
   );
