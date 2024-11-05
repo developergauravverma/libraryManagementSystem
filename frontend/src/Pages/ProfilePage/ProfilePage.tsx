@@ -4,12 +4,12 @@ import { AppDispatch, RootState } from "../../Redux/ReduxStore";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { fetchUser } from "../../Redux/Slice/AuthanticationSclice";
+import { UpdateUserForm } from "../../Features/Profile";
 
 const { profilePageCols, profilePageLeftColumn, profilePageRightColumn } =
   Styles;
 
 const ProfilePage = () => {
-  debugger;
   const loggedInUser = useSelector(
     (state: RootState) => state.authentication.loggedInUser
   );
@@ -39,10 +39,12 @@ const ProfilePage = () => {
     <div className="page">
       <div className="page-container">
         <h1>
-          {profileUser?.firstName} {profileUser?.lasteName}'s Profile
+          {profileUser?.firstName} {profileUser?.lastName}'s Profile
         </h1>
         <div className={profilePageCols}>
-          <div className={profilePageLeftColumn}></div>
+          <div className={profilePageLeftColumn}>
+            <UpdateUserForm />
+          </div>
           <div className={profilePageRightColumn}></div>
         </div>
       </div>

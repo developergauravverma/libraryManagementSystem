@@ -18,8 +18,10 @@ export const ValidateSchema = (schema: ObjectSchema, property: string) => {
       }
       next();
     } catch (error) {
+      console.log(error);
       res.status(422).json({
-        message: "Object validation failed, Please include valid object",
+        message:
+          "Object validation failed, Please include valid object" + error,
       });
     }
   };
@@ -44,14 +46,14 @@ export const Schemas = {
     }),
     userId: Joi.object<{ userId: string }>({
       userId: Joi.string()
-        .regex(/^[0-9a-fA-F]{24}$/)
+        //.regex(/^[0-9a-fA-F]{24}$/)
         .required(),
     }),
     update: Joi.object<IUserModel>({
       _id: Joi.string()
-        .regex(/^[0-9a-fA-F]{24}$/)
+        //.regex(/^[0-9a-fA-F]{24}$/)
         .required(),
-      type: Joi.string().valid("ADMIN", "EMPLOYEE", "PATRON"),
+      type: Joi.string().valid("ADMIN", "EMPLOYEE", "PATRON").required(),
       firstName: Joi.string().required(),
       lastName: Joi.string().required(),
       email: Joi.string()

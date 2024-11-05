@@ -69,7 +69,17 @@ export const updateUser = createAsyncThunk(
   "auth/update",
   async (payload: User, thunkAPI) => {
     try {
-      const req = await axios.put("http://localhost:8000/user", payload);
+      const user: User = {
+        _id: payload._id,
+        email: payload.email,
+        firstName: payload.firstName,
+        lastName: payload.lastName,
+        password: payload.password,
+        type: payload.type,
+      };
+
+      //const { createdAt,updatedAt, ...newPayload } = payload;
+      const req = await axios.put("http://localhost:8000/user", user);
       return req.data.user;
     } catch (error) {
       thunkAPI.rejectWithValue(error);
