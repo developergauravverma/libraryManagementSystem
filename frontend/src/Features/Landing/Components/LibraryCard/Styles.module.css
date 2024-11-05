@@ -1,0 +1,22 @@
+.getLibraryCard {
+  width: 98%;
+  height: fit-content;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: var(--box-shadow);
+  background-color: var(--background-secondary);
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.getLibraryCardImg {
+  width: 50%;
+  margin-bottom: 16px;
+}
+.getLibraryCardLink {
+  color: var(--primary);
+  cursor: pointer;
+  text-decoration: underline;
+}
