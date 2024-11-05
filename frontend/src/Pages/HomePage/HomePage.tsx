@@ -1,16 +1,14 @@
-import { useSelector } from "react-redux";
-import { RootState } from "../../Redux/ReduxStore";
-import { LoginRegisterModal } from "../../Features/Authentication";
+import Styles from "./Styles.module.css";
+
+const { homePageContainer, homePageLeft, homePageRight } = Styles;
 
 const HomePage = (): JSX.Element => {
-  const displayLogin = useSelector(
-    (state: RootState) => state.modal.displayLogin
-  );
-
   return (
     <div className="page">
-      <h1>Home page</h1>
-      {displayLogin ? <LoginRegisterModal /> : <></>}
+      <div className={homePageContainer}>
+        <div className={homePageLeft}></div>
+        <div className={homePageRight}></div>
+      </div>
     </div>
   );
 };

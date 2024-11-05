@@ -2,7 +2,7 @@ export type User = {
   _id: string;
   type: "ADMIN" | "EMPLOYEE" | "PATRON";
   firstName: string;
-  lasteName: string;
+  lastName: string;
   email: string;
   password: string;
 };
@@ -18,4 +18,9 @@ export interface RegisterUserPayload {
   lastName: string;
   email: string;
   password: string;
+}
+
+export interface FetchUserPayload {
+  userId: string;
+  property: "loggedInUser" | "profileUser";
 }
