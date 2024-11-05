@@ -58,7 +58,7 @@ h3,
 h4,
 h5,
 h6 {
-  overflow: break-word;
+  overflow: auto;
 }
 
 #root,
@@ -120,4 +120,26 @@ p {
   align-items: flex-start;
   background-color: var(--background-primary);
   box-shadow: var(--box-shadow);
+}
+
+/* .scrollbar {
+  height: 300px;
+  width: 50%;
+  overflow: auto;
+  padding: 0 10px;
+} */
+
+html body::-webkit-scrollbar {
+  width: 10px;
+}
+
+html body::-webkit-scrollbar-track {
+  border-radius: 8px;
+  background-color: #e7e7e7;
+  border: 1px solid #cacaca;
+}
+
+html body::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: var(--secondary);
 }
