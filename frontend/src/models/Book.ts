@@ -2,12 +2,12 @@ export type Book = {
   _id: string;
   barcode: string;
   cover: string;
-  titile: string;
+  title: string;
   authors: string[];
   description: string;
   subjects: string[];
   publicationDate: Date;
-  publicher: string;
+  publisher: string;
   pages: number;
   genre: string;
   records: [];

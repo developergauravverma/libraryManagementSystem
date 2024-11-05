@@ -1,0 +1,17 @@
+.bookInfo {
+  width: 100%;
+  height: fit-content;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.bookInfoContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+.bookInfoCover {
+  width: 320px;
+  margin-right: 24px;
+}
