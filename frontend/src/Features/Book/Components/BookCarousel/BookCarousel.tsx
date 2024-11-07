@@ -14,6 +14,7 @@ const BookCarousel: FC<BookCarouselProps> = ({ books }) => {
   const [order, setOrder] = useState<Book[]>(books);
 
   const moveLeft: MouseEventHandler<HTMLDivElement> = () => {
+    debugger;
     let item = order[0];
     let recordered = order.slice(1, order.length);
     recordered.push(item);
@@ -21,6 +22,7 @@ const BookCarousel: FC<BookCarouselProps> = ({ books }) => {
   };
 
   const moveRight: MouseEventHandler<HTMLDivElement> = () => {
+    debugger;
     let item = order[order.length - 1];
     let recordered = order.slice(0, order.length - 1);
     recordered = [item, ...recordered];

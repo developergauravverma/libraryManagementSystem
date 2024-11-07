@@ -1,13 +1,15 @@
+import { Book } from "../../../models/Book";
+
 export const generateRandomGenres = (): string[] => {
   let chosen: string[] = [];
   let choices = [
     "Non-Fiction",
-    "Children",
+    "Childrens",
     "Fantasy",
     "Fiction",
     "Biography",
     "Romance",
-    "Science",
+    "Science Fiction",
     "Young Adult",
   ];
   while (chosen.length !== 5) {
@@ -15,4 +17,16 @@ export const generateRandomGenres = (): string[] => {
     if (!chosen.includes(choices[num])) chosen.push(choices[num]);
   }
   return chosen;
+};
+
+export const getRandomBooksByGenre = (genre: string, books: Book[]): Book[] => {
+  let filteredBooks = books.filter((book) => book.genre === genre);
+  let randomBooks: Book[] = [];
+  if (filteredBooks.length < 10) return filteredBooks;
+  while (randomBooks.length !== 10) {
+    let index = Math.floor(Math.random() * filteredBooks.length);
+    if (!randomBooks.some((b) => b["barcode"] === filteredBooks[index].barcode))
+      randomBooks.push(filteredBooks[index]);
+  }
+  return randomBooks;
 };

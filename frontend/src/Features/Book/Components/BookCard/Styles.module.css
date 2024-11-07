@@ -37,7 +37,7 @@
 }
 .bookCardDescription {
   width: 100%;
-  max-width: 70%;
+  max-height: 70%;
   font-size: 0.75rem;
   display: -webkit-box;
   -webkit-line-clamp: 6;
