@@ -1,5 +1,6 @@
 import {
   BookOfTheWeek,
+  ContactUs,
   LibraryCard,
   LibraryHours,
   UpComingEvents,
@@ -19,6 +20,7 @@ const HomePage = (): JSX.Element => {
         </div>
         <div className={homePageRight}>
           <LibraryHours />
+          <ContactUs />
         </div>
       </div>
     </div>

@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LayoutPage from "./Pages/LayoutPage/LayoutPage";
 import { fetchUser } from "./Redux/Slice/AuthanticationSclice";
 import ProfilePage from "./Pages/ProfilePage/ProfilePage";
+import CatalogPage from "./Pages/CatalogPage/CatalogPage";
 
 const App = () => {
   const loggedInUser = useSelector(
@@ -31,7 +32,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<LayoutPage />}>
           <Route path="" element={<HomePage />} />
-          <Route path="/catalog" element={<>catalog</>} />
+          <Route path="/catalog" element={<CatalogPage />} />
           <Route path="/resource/:barcode" element={<>resource/:barcode</>} />
           <Route path="/profile/:userId" element={<ProfilePage />} />
         </Route>

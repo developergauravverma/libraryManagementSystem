@@ -60,7 +60,7 @@ const Navbar: FC = () => {
         <h1>My Library</h1>
       </Link>
       <div className={navbarOptionSection}>
-        <Link to="" className={`${navbarOption} ${navbarLink}`}>
+        <Link to="/catalog" className={`${navbarOption} ${navbarLink}`}>
           <h2>View Catalog</h2>
         </Link>
         <div className={navbarSearchBox}>
