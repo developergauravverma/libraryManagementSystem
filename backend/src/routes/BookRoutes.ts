@@ -7,5 +7,6 @@ routes.get("/", BookController.getAllBooks);
 routes.post("/", BookController.createBook);
 routes.put("/", BookController.updateBook);
 routes.delete("/:barcode", BookController.deleteBook);
+routes.get("/query", BookController.searchForBooksByQuery);
 
 export = routes;
