@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import {
   findAllBooks,
   modifyBook,
+  queryBooks,
   registerBook,
   removeBook,
 } from "../services/BookServices";
@@ -55,4 +56,43 @@ const deleteBook = async (req: Request, res: Response) => {
   }
 };
 
-export default { getAllBooks, createBook, updateBook, deleteBook };
+const searchForBooksByQuery = async (req: Request, res: Response) => {
+  let {
+    title,
+    barcode,
+    author,
+    description,
+    subject,
+    genre,
+    page = 1,
+    limit = 25,
+  } = req.query;
+  try {
+    let books = await queryBooks(
+      Number(page),
+      Number(limit),
+      title as string,
+      barcode as string,
+      description as string,
+      author as string,
+      subject as string,
+      genre as string
+    );
+    res
+      .status(200)
+      .json({ message: "Retrieved books from query", page: books });
+  } catch (error: any) {
+    res.status(500).json({
+      message: "Unable to search book by query at this time",
+      error: error.message,
+    });
+  }
+};
+
+export default {
+  getAllBooks,
+  createBook,
+  updateBook,
+  deleteBook,
+  searchForBooksByQuery,
+};
