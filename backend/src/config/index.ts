@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const MONGO_CONNSTRING: string = process.env.MONGO_CONNSTRING || "";
+const MONGO_CONNSTRING: string = process.env.MONGOCONNSTRING || "";
 const SERVERPORT: number = process.env.SERVERPORT
   ? Number(process.env.SERVERPORT)
   : 8000;

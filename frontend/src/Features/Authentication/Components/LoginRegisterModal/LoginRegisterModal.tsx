@@ -35,11 +35,7 @@ const LoginRegisterModal: FC = () => {
     <Modal
       toggleModal={closeModal}
       content={
-        login ? (
-          <LoginForm toggleRegister={toggleLogin} />
-        ) : (
-          <RegisterForm toggleLogin={toggleLogin} />
-        )
+        login ? <LoginForm toggleRegister={toggleLogin} /> : <RegisterForm />
       }
     ></Modal>
   );
