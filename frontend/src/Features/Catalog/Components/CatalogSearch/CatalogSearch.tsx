@@ -5,6 +5,7 @@ import { AppDispatch, RootState } from "../../../../Redux/ReduxStore";
 import { useLocation } from "react-router-dom";
 import { queryBooks } from "../../../../Redux/Slice/BookSlice";
 import { BookCard } from "../../../Book";
+import CatalogAdvanceSearch from "../CatalogAdvanceSearch/CatalogAdvanceSearch";
 
 const {
   catalogSearch,
@@ -22,7 +23,9 @@ const CatalogSearch: FC = () => {
   }, [location.search]);
   return (
     <div className={catalogSearch}>
-      <div className={catalogSearchAdvanceSearchSection}></div>
+      <div className={catalogSearchAdvanceSearchSection}>
+        <CatalogAdvanceSearch />
+      </div>
       {!bookState.loading ? (
         <>
           <h2>
