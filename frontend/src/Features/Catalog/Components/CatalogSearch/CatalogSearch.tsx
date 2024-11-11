@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 import { queryBooks } from "../../../../Redux/Slice/BookSlice";
 import { BookCard } from "../../../Book";
 import CatalogAdvanceSearch from "../CatalogAdvanceSearch/CatalogAdvanceSearch";
+import CatalogSearchPageNavigator from "../CatalogSearchPageNavigator/CatalogSearchPageNavigator";
 
 const {
   catalogSearch,
@@ -37,7 +38,9 @@ const CatalogSearch: FC = () => {
               <BookCard key={book.barcode} book={book} />
             ))}
           </div>
-          <div className={catalogSearchPages}></div>
+          <div className={catalogSearchPages}>
+            <CatalogSearchPageNavigator />
+          </div>
         </>
       ) : (
         <></>
