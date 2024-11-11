@@ -18,11 +18,7 @@ const {
   registerFormInputGroup,
 } = styles;
 
-interface RegisterFormProps {
-  toggleLogin(): void;
-}
-
-const RegisterForm: FC<RegisterFormProps> = ({ toggleLogin }) => {
+const RegisterForm: FC = () => {
   const authState = useSelector((state: RootState) => state.authentication);
   const dispatch: AppDispatch = useDispatch();
 

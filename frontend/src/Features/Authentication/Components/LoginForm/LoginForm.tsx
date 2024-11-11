@@ -1,10 +1,8 @@
-import { FC, MouseEvent, useRef, useState } from "react";
-import styles from "./styles.module.css";
-import axios from "axios";
-import { User } from "../../../../models/User";
+import { FC, MouseEvent, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../../Redux/ReduxStore";
 import { loginUser } from "../../../../Redux/Slice/AuthanticationSclice";
+import styles from "./styles.module.css";
 
 const {
   loginForm,
