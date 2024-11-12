@@ -105,7 +105,7 @@ export const AuthenticationSlice = createSlice({
     },
   },
   extraReducers(builder) {
-    builder.addCase(loginUser.pending, (state, action) => {
+    builder.addCase(loginUser.pending, (state) => {
       return (state = {
         ...state,
         error: false,
@@ -113,7 +113,7 @@ export const AuthenticationSlice = createSlice({
       });
     });
 
-    builder.addCase(registerUser.pending, (state, action) => {
+    builder.addCase(registerUser.pending, (state) => {
       return (state = {
         ...state,
         error: false,
@@ -121,7 +121,7 @@ export const AuthenticationSlice = createSlice({
       });
     });
 
-    builder.addCase(fetchUser.pending, (state, action) => {
+    builder.addCase(fetchUser.pending, (state) => {
       return (state = {
         ...state,
         error: false,
@@ -129,7 +129,7 @@ export const AuthenticationSlice = createSlice({
       });
     });
 
-    builder.addCase(updateUser.pending, (state, action) => {
+    builder.addCase(updateUser.pending, (state) => {
       return (state = {
         ...state,
         error: false,
@@ -145,7 +145,7 @@ export const AuthenticationSlice = createSlice({
       });
     });
 
-    builder.addCase(registerUser.fulfilled, (state, action) => {
+    builder.addCase(registerUser.fulfilled, (state) => {
       return (state = {
         ...state,
         loading: false,
@@ -170,7 +170,7 @@ export const AuthenticationSlice = createSlice({
       });
     });
 
-    builder.addCase(loginUser.rejected, (state, action) => {
+    builder.addCase(loginUser.rejected, (state) => {
       return (state = {
         ...state,
         error: true,
@@ -178,7 +178,7 @@ export const AuthenticationSlice = createSlice({
       });
     });
 
-    builder.addCase(registerUser.rejected, (state, action) => {
+    builder.addCase(registerUser.rejected, (state) => {
       return (state = {
         ...state,
         error: true,
@@ -186,7 +186,7 @@ export const AuthenticationSlice = createSlice({
       });
     });
 
-    builder.addCase(fetchUser.rejected, (state, action) => {
+    builder.addCase(fetchUser.rejected, (state) => {
       return (state = {
         ...state,
         error: true,
@@ -194,7 +194,7 @@ export const AuthenticationSlice = createSlice({
       });
     });
 
-    builder.addCase(updateUser.rejected, (state, action) => {
+    builder.addCase(updateUser.rejected, (state) => {
       return (state = {
         ...state,
         error: true,

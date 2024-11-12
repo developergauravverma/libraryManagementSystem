@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Book } from "../../../../models/Book";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import Styles from "./Styles.module.css";
 import { mapAuthorsToString } from "../../Utils/BookUtils";
 
@@ -18,11 +18,11 @@ interface BookCardProps {
 }
 
 const BookCard: FC<BookCardProps> = ({ book }) => {
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
-  const displayBook = () => {
-    navigate(`/resource/${book.barcode}`);
-  };
+  // const displayBook = () => {
+  //   navigate(`/resource/${book.barcode}`);
+  // };
 
   return (
     <div id={bookCard} className={bookCard}>

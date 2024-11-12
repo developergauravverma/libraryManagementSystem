@@ -23,6 +23,7 @@ export const fetchAllBooks = createAsyncThunk(
     try {
       const res = await axios.get("http://localhost:8000/book/");
       return res.data.book;
+      console.log(payload);
     } catch (error: any) {
       thunkApi.rejectWithValue(error);
     }
@@ -46,14 +47,14 @@ export const BookSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchAllBooks.pending, (state, action) => {
+    builder.addCase(fetchAllBooks.pending, (state) => {
       return (state = {
         ...state,
         loading: true,
         books: [],
       });
     });
-    builder.addCase(queryBooks.pending, (state, action) => {
+    builder.addCase(queryBooks.pending, (state) => {
       return (state = {
         ...state,
         loading: false,
@@ -81,14 +82,14 @@ export const BookSlice = createSlice({
         },
       });
     });
-    builder.addCase(fetchAllBooks.rejected, (state, action) => {
+    builder.addCase(fetchAllBooks.rejected, (state) => {
       return (state = {
         ...state,
         loading: false,
         error: true,
       });
     });
-    builder.addCase(queryBooks.rejected, (state, action) => {
+    builder.addCase(queryBooks.rejected, (state) => {
       return (state = {
         ...state,
         loading: false,

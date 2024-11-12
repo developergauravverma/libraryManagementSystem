@@ -1,14 +1,13 @@
-import { useDispatch, useSelector } from "react-redux";
-import Styles from "./Styles.module.css";
-import { AppDispatch, RootState } from "../../../../Redux/ReduxStore";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../../../Redux/ReduxStore";
 import { fetchAllBooks } from "../../../../Redux/Slice/BookSlice";
 import {
   generateRandomGenres,
   getRandomBooksByGenre,
 } from "../../Utils/CatalogUtils";
 import CatalogOverViewSection from "../CatalogOverViewSection/CatalogOverViewSection";
-import { Label } from "@mui/icons-material";
+import Styles from "./Styles.module.css";
 
 const { catalogOverview } = Styles;
 
@@ -18,6 +17,7 @@ const CatalogOverView = () => {
 
   const [genres, setGenres] = useState<string[]>(() => {
     return generateRandomGenres();
+    console.log(setGenres);
   });
 
   useEffect(() => {

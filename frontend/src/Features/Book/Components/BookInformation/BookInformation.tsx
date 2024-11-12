@@ -15,7 +15,7 @@ const BookInformation: FC<BookInfoProps> = ({ book }) => {
       <div className={bookInfoContainer}>
         <img className={bookInfoCover} src={book.cover} />
         <div className="">
-          <h2>{book.titile}</h2>
+          <h2>{book.title}</h2>
           <h3>{mapAuthorsToString(book)}</h3>
           <p>{book.description}</p>
         </div>
