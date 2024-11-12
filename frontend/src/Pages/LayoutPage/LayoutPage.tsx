@@ -1,7 +1,10 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../Redux/ReduxStore";
 import styles from "./Styles.module.css";
-import { LoginRegisterModal } from "../../Features/Authentication";
+import {
+  LibraryCardModal,
+  LoginRegisterModal,
+} from "../../Features/Authentication";
 import { Outlet } from "react-router-dom";
 import { Footer, Navbar } from "../../Features/Navigation";
 
@@ -13,6 +16,7 @@ const Layout = () => {
   return (
     <div className={layoutPage}>
       {state.displayLogin && <LoginRegisterModal />}
+      {state.displayLibraryCard && <LibraryCardModal />}
       <Navbar />
       <Outlet />
       <Footer />

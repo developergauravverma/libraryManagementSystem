@@ -10,6 +10,7 @@ import axios from "axios";
 interface AuthenticationSliceState {
   loggedInUser: User | undefined;
   profileUser: User | undefined;
+  libraryCard: string;
   loading: boolean;
   error: boolean;
   registerSuccess: boolean;
@@ -18,6 +19,7 @@ interface AuthenticationSliceState {
 const initialState: AuthenticationSliceState = {
   loggedInUser: undefined,
   profileUser: undefined,
+  libraryCard: "",
   loading: false,
   error: false,
   registerSuccess: false,
@@ -82,7 +84,21 @@ export const updateUser = createAsyncThunk(
       const req = await axios.put("http://localhost:8000/user", user);
       return req.data.user;
     } catch (error) {
-      thunkAPI.rejectWithValue(error);
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+export const getLibraryCard = createAsyncThunk(
+  "auth/librarycard",
+  async (userId: string, thunkApi) => {
+    try {
+      const res = await axios.post(`http://localhost:8000/card/`, {
+        user: userId,
+      });
+      return res.data.libraryCard;
+    } catch (error: any) {
+      return thunkApi.rejectWithValue(error);
     }
   }
 );
@@ -137,6 +153,14 @@ export const AuthenticationSlice = createSlice({
       });
     });
 
+    builder.addCase(getLibraryCard.pending, (state) => {
+      return (state = {
+        ...state,
+        loading: true,
+        error: false,
+      });
+    });
+
     builder.addCase(loginUser.fulfilled, (state, action) => {
       return (state = {
         ...state,
@@ -170,6 +194,14 @@ export const AuthenticationSlice = createSlice({
       });
     });
 
+    builder.addCase(getLibraryCard.fulfilled, (state, action) => {
+      return (state = {
+        ...state,
+        loading: false,
+        libraryCard: action.payload._id,
+      });
+    });
+
     builder.addCase(loginUser.rejected, (state) => {
       return (state = {
         ...state,
@@ -195,6 +227,14 @@ export const AuthenticationSlice = createSlice({
     });
 
     builder.addCase(updateUser.rejected, (state) => {
+      return (state = {
+        ...state,
+        error: true,
+        loading: false,
+      });
+    });
+
+    builder.addCase(getLibraryCard.rejected, (state) => {
       return (state = {
         ...state,
         error: true,

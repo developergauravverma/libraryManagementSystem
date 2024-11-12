@@ -1,0 +1,25 @@
+.registerLibraryCardCotainer {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.registerLibraryCardText {
+  margin-bottom: 12px;
+  text-align: center;
+}
+.registerLibraryModalButton {
+  width: 50%;
+  height: 3rem;
+  font-size: 1.5rem;
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  cursor: pointer;
+  background-color: var(--background-secondary);
+}
+.registerLibraryModalButton:hover {
+  color: var(--primary);
+  box-shadow: var(--box-shadow);
+}
